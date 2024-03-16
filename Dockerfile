@@ -14,6 +14,9 @@ RUN go mod init dnschecker && go mod tidy
 # Build the Go app
 RUN go build -o dnschecker .
 
+RUN adduser -D -g '' appuser
+USER appuser
+
 # Command to run the executable
 CMD ["./dnschecker"]
 
